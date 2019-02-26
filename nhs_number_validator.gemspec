@@ -6,8 +6,8 @@ Gem::Specification.new do |s|
   s.description = 'A simple ActiveRecord validator based on the NHS Number specifications for healthcare providers in the UK.'
   s.license = 'MIT'
   s.homepage = 'https://github.com/mtthwhggns/nhs_number_validator'
-  s.version = '1.0.0'
-  s.add_dependency("activemodel", "~> 0")
-  s.add_development_dependency("rspec", "~> 0")
+  s.version = '1.0.1'
+  s.add_dependency "activemodel"
+  s.add_development_dependency "rspec"
   s.email = 'oss@matthewhiggins.me'
 end
