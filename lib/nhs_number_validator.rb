@@ -1,6 +1,7 @@
 class NhsNumberValidator < ActiveModel::EachValidator
   def self.valid?(number)
     if self.format_valid?(number)
+      return false if self.same_digit?(number)
       digit_array = number.to_s.split(//)
       if digit_array[9].to_i == check_digit(digit_array)
         true
@@ -20,6 +21,10 @@ class NhsNumberValidator < ActiveModel::EachValidator
 
   def self.format_valid?(number)
     !!(/^\d{10}$/.match(number.to_s))
+  end
+
+  def self.same_digit?(number)
+    !!(/^(\d)\1{9}$/.match(number.to_s))
   end
 
   def self.check_digit(digit_array)
