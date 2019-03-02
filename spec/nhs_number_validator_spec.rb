@@ -29,7 +29,7 @@ describe NhsNumberValidator do
       end
     end
     context 'given the invalid NHS numbers' do
-      %w(9434765918 9434765875 9434765916 4012032132).each do |n|
+      %w(9434765918 9434765875 9434765916 4012032132 1111111111 9999999999).each do |n|
         it "#{n} should result in an invalid record" do
           expect(TestPatient.new(nhs_number: n.to_s)).not_to be_valid
         end
